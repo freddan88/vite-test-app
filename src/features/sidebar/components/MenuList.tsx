@@ -24,7 +24,8 @@ const MenuList: FC<IProps> = ({
   const subMenuClasses =
     isSubMenu && isClosed ? 'absolute top-0 right-[-200px] z-50 w-[200px]' : '';
 
-  const classes = `${bgClass} ${subMenuClass} ${subMenuClasses}`.trim();
+  const classes =
+    `select-none ${bgClass} ${subMenuClass} ${subMenuClasses}`.trim();
 
   return (
     <ul style={{ height }} className={classes} onClick={onClick}>
