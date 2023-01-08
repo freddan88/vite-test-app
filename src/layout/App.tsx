@@ -1,3 +1,4 @@
+import MeatballsMenu from '../components/MeatballsMenu';
 import TabNavigation from '../components/tabNavigation/TabNavigation';
 import Sidebar from '../features/sidebar/Sidebar';
 
@@ -12,6 +13,12 @@ function App() {
               Hello
             </h1>
             <TabNavigation />
+            <br />
+            <br />
+            <MeatballsMenu />
+            <br />
+            <br />
+            <MeatballsMenu />
           </section>
         </main>
       </div>
