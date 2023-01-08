@@ -32,6 +32,7 @@ const TabNavigation: React.FC<IProps> = (props) => {
           const isActiveLink = activeLink === obj.link;
           return (
             <li
+              key={obj.link}
               className={`relative flex flex-1 after:absolute after:inset-x-0 after:bottom-0 after:p-0.5 ${
                 isActiveLink ? 'after:bg-green-300' : 'after:bg-transparent'
               }`}
