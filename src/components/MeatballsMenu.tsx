@@ -27,8 +27,9 @@ const MeatballsMenu: FC<IProps> = (props) => {
       onClick={() => setOpenMenu((prevValue) => !prevValue)}
       onBlur={(e) => {
         if (menuElement.current) {
-          if (!menuElement.current.contains(e.relatedTarget))
+          if (!menuElement.current.contains(e.relatedTarget)) {
             setOpenMenu(false);
+          }
         }
       }}
     >

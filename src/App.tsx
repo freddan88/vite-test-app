@@ -1,6 +1,6 @@
 import { Link, Route, Routes } from 'react-router-dom';
-import SidebarTest01 from '../apps/SidebarTest01';
-import MeatballsMenu from '../components/MeatballsMenu';
+import MeatballsMenu from './components/MeatballsMenu';
+import SidebarTest01 from './features/sidebarTest01/SidebarTest01';
 
 function App() {
   return (

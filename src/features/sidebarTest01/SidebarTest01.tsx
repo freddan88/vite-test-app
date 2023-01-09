@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import MeatballsMenu from '../components/MeatballsMenu';
-import TabNavigation from '../components/tabNavigation/TabNavigation';
-import Sidebar from '../features/sidebar/Sidebar';
+import MeatballsMenu from '../../components/MeatballsMenu';
+import TabNavigation from '../../components/tabNavigation/TabNavigation';
+import Sidebar from './sidebar/Sidebar';
 
 const SidebarTest01: FC = () => {
   return (
