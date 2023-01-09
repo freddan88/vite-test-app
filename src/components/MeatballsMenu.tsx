@@ -25,7 +25,12 @@ const MeatballsMenu: FC<IProps> = (props) => {
       ref={menuElement}
       className="relative inline-block cursor-pointer rounded-full bg-slate-100"
       onClick={() => setOpenMenu((prevValue) => !prevValue)}
-      onBlur={() => setOpenMenu(false)}
+      onBlur={(e) => {
+        if (menuElement.current) {
+          if (!menuElement.current.contains(e.relatedTarget))
+            setOpenMenu(false);
+        }
+      }}
     >
       <Icon path={mdiDotsHorizontal} size={1} />
       {openMenu && <TableContextMenu menuPosition={menuElementHeight} />}

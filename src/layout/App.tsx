@@ -1,26 +1,16 @@
+import { Link, Route, Routes } from 'react-router-dom';
+import SidebarTest01 from '../apps/SidebarTest01';
 import MeatballsMenu from '../components/MeatballsMenu';
-import TabNavigation from '../components/tabNavigation/TabNavigation';
-import Sidebar from '../features/sidebar/Sidebar';
 
 function App() {
   return (
     <div className="h-screen overflow-hidden bg-slate-200">
-      <div className="flex h-screen">
-        <Sidebar />
-        <main className="flex-1">
-          <section className="mx-auto h-full w-11/12 bg-slate-900 p-8">
-            <h1 className="text-center font-serif text-5xl text-slate-200">
-              Hello
-            </h1>
-            <TabNavigation />
-            <br />
-            <br />
-            <MeatballsMenu />
-            <br />
-            <br />
-            <MeatballsMenu />
-          </section>
-        </main>
+      <Routes>
+        <Route path="sidebar-test-01" element={<SidebarTest01 />} />
+        <Route path="/" element={<p>Home</p>} />
+      </Routes>
+      <div className="fixed top-5 right-5">
+        <MeatballsMenu />
       </div>
     </div>
   );
