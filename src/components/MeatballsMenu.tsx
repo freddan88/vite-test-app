@@ -23,7 +23,7 @@ const MeatballsMenu: FC<IProps> = (props) => {
     <div
       tabIndex={0}
       ref={menuElement}
-      className="relative inline-block cursor-pointer rounded-full bg-slate-100"
+      className="relative inline-block cursor-pointer select-none rounded-full bg-slate-100"
       onClick={() => setOpenMenu((prevValue) => !prevValue)}
       onBlur={(e) => {
         if (menuElement.current) {

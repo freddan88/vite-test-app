@@ -1,9 +1,16 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import MeatballsMenu from '../../components/MeatballsMenu';
 import TabNavigation from '../../components/tabNavigation/TabNavigation';
+import { DataContext } from '../dataContextProvider/DataContextProvider';
+import useNotification from '../useNotification';
 import Sidebar from './sidebar/Sidebar';
 
 const SidebarTest01: FC = () => {
+  const { newNotification } = useNotification();
+  const [state, dispatch] = useContext(DataContext);
+
+  console.log(state);
+
   return (
     <div className="flex h-screen">
       <Sidebar />
@@ -19,7 +26,17 @@ const SidebarTest01: FC = () => {
           <br />
           <br />
           <MeatballsMenu />
+          <br />
+          <br />
+          <button
+            type="button"
+            className="rounded-lg bg-slate-300 px-2 py-4 font-bold shadow-md"
+            onClick={() => newNotification()}
+          >
+            New Notification
+          </button>
         </section>
+        {state.notifications}
       </main>
     </div>
   );
