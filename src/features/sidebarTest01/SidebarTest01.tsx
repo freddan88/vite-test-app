@@ -9,8 +9,6 @@ const SidebarTest01: FC = () => {
   const { newNotification } = useNotification();
   const [state, dispatch] = useContext(DataContext);
 
-  console.log(state);
-
   return (
     <div className="flex h-screen">
       <Sidebar />
