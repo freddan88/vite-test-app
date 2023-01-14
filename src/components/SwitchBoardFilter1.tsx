@@ -14,7 +14,7 @@ interface IProps {
 
 let isCanceled = false;
 
-const SwitchBoardFilter: React.FC<IProps> = ({
+const SwitchBoardFilter1: React.FC<IProps> = ({
   data,
   name,
   value,
@@ -67,4 +67,4 @@ const SwitchBoardFilter: React.FC<IProps> = ({
   );
 };
 
-export default SwitchBoardFilter;
+export default SwitchBoardFilter1;

@@ -1,8 +1,9 @@
 import { ReactNode, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MeatballsMenu from './components/MeatballsMenu';
-import SwitchBoardFilter from './components/switchBoardFilter/SwitchBoardFilter';
-import SwitchBoardFilterNew from './components/SwitchBoardFilterNew';
+import SwitchBoardFilter1 from './components/SwitchBoardFilter1';
+import SwitchBoardFilter2 from './components/SwitchBoardFilter2';
+import SwitchBoardFilter3 from './components/SwitchBoardFilter3';
 import SidebarTest01 from './features/sidebarTest01/SidebarTest01';
 import ToastNotification from './features/toastNotification/ToastNotification';
 
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <div className="h-screen overflow-hidden bg-slate-200">
-      <SwitchBoardFilter
+      <SwitchBoardFilter1
         value={1}
         name="test"
         data={switchBoardData}
@@ -38,9 +39,17 @@ function App() {
       />
       <br />
       <br />
-      <SwitchBoardFilterNew
+      <SwitchBoardFilter2
         filterData={switchBoardData}
         filterName="newSwitchboard"
+        filterValue={1}
+        onFilterChange={(e) => console.log(e)}
+      />
+      <br />
+      <br />
+      <SwitchBoardFilter3
+        filterData={switchBoardData}
+        filterName="switchboard3"
         filterValue={1}
         onFilterChange={(e) => console.log(e)}
       />
