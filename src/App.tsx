@@ -2,6 +2,7 @@ import { ReactNode, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MeatballsMenu from './components/MeatballsMenu';
 import SwitchBoardFilter from './components/switchBoardFilter/SwitchBoardFilter';
+import SwitchBoardFilterNew from './components/SwitchBoardFilterNew';
 import SidebarTest01 from './features/sidebarTest01/SidebarTest01';
 import ToastNotification from './features/toastNotification/ToastNotification';
 
@@ -34,6 +35,14 @@ function App() {
         name="test"
         data={switchBoardData}
         onChange={(value) => console.log(value)}
+      />
+      <br />
+      <br />
+      <SwitchBoardFilterNew
+        filterData={switchBoardData}
+        filterName="newSwitchboard"
+        filterValue={1}
+        onFilterChange={(e) => console.log(e)}
       />
       <Routes>
         <Route path="sidebar-test-01" element={<SidebarTest01 />} />
