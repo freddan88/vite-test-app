@@ -6,6 +6,7 @@ interface IProps {
   disabled?: boolean;
   name?: string;
   value?: string;
+  fullWidth?: boolean;
   tooltipText?: string;
   iconPathAfter?: string;
   iconPathBefore?: string;
@@ -48,6 +49,7 @@ const Button: React.FC<IProps> = ({
   disabled,
   name,
   value,
+  fullWidth,
   tooltipText,
   iconPathAfter,
   iconPathBefore,
@@ -70,13 +72,17 @@ const Button: React.FC<IProps> = ({
   );
 
   return (
-    <div className="inline-block">
+    <div
+      className="inline-block"
+      style={{ width: fullWidth ? '100%' : 'auto' }}
+    >
       <button
         type={type}
         name={name}
         value={value}
         disabled={disabled}
-        className={`flex items-center gap-2 hover:brightness-90 ${combinedStyleClasses.join(
+        style={{ width: fullWidth ? '100%' : 'auto' }}
+        className={`flex items-center justify-center gap-2 hover:brightness-90 ${combinedStyleClasses.join(
           ' '
         )}`}
         onClick={!onClick ? undefined : (e) => onClick(e)}
