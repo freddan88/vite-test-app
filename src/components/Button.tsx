@@ -61,7 +61,7 @@ const Button: React.FC<IProps> = ({
 }) => {
   const colorVariant = variant === 'outlined' ? 'outlined' : color;
 
-  const combinedStyleClasses = useMemo(
+  const styleClasses = useMemo(
     () => [
       buttonStyleClasses.sizes[size],
       buttonStyleClasses.colors[colorVariant],
@@ -70,6 +70,10 @@ const Button: React.FC<IProps> = ({
     ],
     []
   );
+
+  const allClasses = `flex items-center justify-center gap-2 hover:brightness-90 ${styleClasses.join(
+    ' '
+  )}`;
 
   return (
     <div
@@ -82,10 +86,8 @@ const Button: React.FC<IProps> = ({
         value={value}
         disabled={disabled}
         style={{ width: fullWidth ? '100%' : 'auto' }}
-        className={`flex items-center justify-center gap-2 hover:brightness-90 ${combinedStyleClasses.join(
-          ' '
-        )}`}
         onClick={!onClick ? undefined : (e) => onClick(e)}
+        className={allClasses}
       >
         {iconPathBefore && <Icon path={iconPathBefore} size={0.8} />}
         {children}
