@@ -1,9 +1,10 @@
 import Icon from '@mdi/react';
 import React, { MouseEvent, ReactNode, useMemo } from 'react';
 
-interface IProps {
+export interface IProps {
   children: ReactNode | string;
   disabled?: boolean;
+  id?: string;
   name?: string;
   value?: string;
   fullWidth?: boolean;
@@ -17,11 +18,13 @@ interface IProps {
   onClick?: (e: MouseEvent<HTMLButtonElement>) => any;
 }
 
-const buttonStyleClasses = {
+export const BUTTON_CONTAINER_TEST_ID = 'button-container-test-id';
+
+export const buttonStyleClasses = {
   sizes: {
-    small: 'px-4 py-1 rounded-md',
-    medium: 'px-6 py-2 rounded-lg',
-    large: 'px-8 py-3 rounded-lg',
+    small: 'px-2 py-1 rounded-md',
+    medium: 'px-4 py-2 rounded-lg',
+    large: 'px-6 py-2 rounded-lg',
   },
   colors: {
     primary: 'bg-blue-500 border-blue-500',
@@ -39,7 +42,7 @@ const buttonStyleClasses = {
     },
   },
   variants: {
-    contained: 'border-0',
+    contained: 'border-2',
     outlined: 'border-2',
   },
 };
@@ -47,6 +50,7 @@ const buttonStyleClasses = {
 const Button: React.FC<IProps> = ({
   children,
   disabled,
+  id,
   name,
   value,
   fullWidth,
@@ -68,19 +72,21 @@ const Button: React.FC<IProps> = ({
       buttonStyleClasses.text[variant][color],
       buttonStyleClasses.variants[variant],
     ],
-    []
+    [size, color, variant, colorVariant]
   );
 
-  const allClasses = `flex items-center justify-center gap-2 hover:brightness-90 ${styleClasses.join(
+  const allClasses = `flex items-center justify-center gap-2 box-border hover:brightness-90 ${styleClasses.join(
     ' '
   )}`;
 
   return (
     <div
       className="inline-block"
+      data-testid={BUTTON_CONTAINER_TEST_ID}
       style={{ width: fullWidth ? '100%' : 'auto' }}
     >
       <button
+        id={id}
         type={type}
         name={name}
         value={value}

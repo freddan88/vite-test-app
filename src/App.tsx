@@ -57,7 +57,7 @@ function App() {
       />
       <br />
       <br />
-      <Button iconPathAfter={mdiHome} variant="outlined">
+      <Button iconPathAfter={mdiHome} variant="contained">
         HOME
       </Button>
       <Routes>
