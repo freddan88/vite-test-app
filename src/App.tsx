@@ -1,5 +1,7 @@
+import { mdiHome } from '@mdi/js';
 import { ReactNode, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Button from './components/Button';
 import MeatballsMenu from './components/MeatballsMenu';
 import SwitchBoardFilter1 from './components/SwitchBoardFilter1';
 import SwitchBoardFilter2 from './components/SwitchBoardFilter2';
@@ -53,6 +55,11 @@ function App() {
         filterValue={1}
         onFilterChange={(e) => console.log(e)}
       />
+      <br />
+      <br />
+      <Button iconPathAfter={mdiHome} variant="outlined">
+        HOME
+      </Button>
       <Routes>
         <Route path="sidebar-test-01" element={<SidebarTest01 />} />
         <Route path="/" element={<p>Home</p>} />
