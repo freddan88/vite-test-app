@@ -1,5 +1,5 @@
 import Icon from '@mdi/react';
-import React, { MouseEvent, ReactNode, useMemo } from 'react';
+import { MouseEvent, ReactNode, useMemo } from 'react';
 
 export interface IProps {
   children: ReactNode | string;
@@ -8,7 +8,9 @@ export interface IProps {
   name?: string;
   value?: string;
   fullWidth?: boolean;
-  tooltipText?: string;
+  tooltipTextEnable?: string;
+  tooltipTextDisabled?: string;
+  tooltipPosition?: 'top' | 'bottom' | 'left' | 'right';
   iconPathAfter?: string;
   iconPathBefore?: string;
   type?: 'button' | 'reset' | 'submit';
@@ -47,22 +49,24 @@ export const buttonStyleClasses = {
   },
 };
 
-const Button: React.FC<IProps> = ({
-  children,
-  disabled,
-  id,
-  name,
-  value,
-  fullWidth,
-  tooltipText,
-  iconPathAfter,
-  iconPathBefore,
-  type = 'button',
-  size = 'medium',
-  color = 'primary',
-  variant = 'contained',
-  onClick,
-}) => {
+const Button = ({
+  children, // Mandatory: Text or element to show in this button
+  disabled, // Optional: Prop to disable this button
+  id, // Optional: Prop to set id for this button
+  name, // Optional: Prop to set name for this button
+  value, // Optional: Prop to set value for this button
+  fullWidth, // Optional: If true this buttons width will be 100%
+  tooltipPosition = 'top', // Optional: Were to render the tooltip. Default: Top of this button
+  tooltipTextDisabled, // Optional: Enables the tooltip and displays a text onHover when this button is disabled
+  tooltipTextEnable, // Optional: Enables the tooltip and displays a text onHover when this button is enabled
+  iconPathAfter, // Optional: If set it will render an icon after the text in this button
+  iconPathBefore, // Optional: If set it will render an icon before the text in this button
+  type = 'button', // Optional: Set the type for this button. Default: Button
+  size = 'medium', // Optional: Set the size of this button. Default: Medium
+  color = 'primary', // Optional: Set the color-scheme for this button. Default: Primary
+  variant = 'contained', // Optional: Set the look for this button. Default: Contained
+  onClick, // Optional: Function to trigger when clicked. Emits the event together with name and value if set
+}: IProps) => {
   const colorVariant = variant === 'outlined' ? 'outlined' : color;
 
   const styleClasses = useMemo(
@@ -75,7 +79,7 @@ const Button: React.FC<IProps> = ({
     [size, color, variant, colorVariant]
   );
 
-  const allClasses = `flex items-center justify-center gap-2 box-border hover:brightness-90 ${styleClasses.join(
+  const allClasses = `box-border flex items-center justify-center gap-2 hover:brightness-90 ${styleClasses.join(
     ' '
   )}`;
 
