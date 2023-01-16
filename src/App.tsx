@@ -8,6 +8,7 @@ import SwitchBoardFilter2 from './components/SwitchBoardFilter2';
 import SwitchBoardFilter3 from './components/SwitchBoardFilter3';
 import SidebarTest01 from './features/sidebarTest01/SidebarTest01';
 import ToastNotification from './features/toastNotification/ToastNotification';
+import SwitchBoardFilter4 from './components/SwitchBoardFilter4';
 
 const switchBoardData = [
   {
@@ -55,6 +56,9 @@ function App() {
         filterValue={1}
         onFilterChange={(e) => console.log(e)}
       />
+      <br />
+      <br />
+      <SwitchBoardFilter4 />
       <br />
       <br />
       <Button iconPathAfter={mdiHome} variant="contained">
