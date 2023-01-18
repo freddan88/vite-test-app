@@ -7,7 +7,11 @@ import React, {
 } from 'react';
 
 interface IProps {
+  name?: string;
   value?: string;
+  data?: any[];
+  disabled?: boolean;
+  onChange?: () => any;
 }
 
 const boardData = [
