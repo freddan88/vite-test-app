@@ -25,6 +25,8 @@ const boardData = [
   },
 ];
 
+let prevValue = '';
+
 const SwitchBoardFilter5: React.FC<IProps> = ({ value }) => {
   const [selected, setSelected] = useState<any>();
 
@@ -34,6 +36,7 @@ const SwitchBoardFilter5: React.FC<IProps> = ({ value }) => {
     const element = e.target as HTMLLIElement;
     const { width } = element.getBoundingClientRect();
     setSelected({
+      value: element.id,
       label: element.textContent!,
       left: element.offsetLeft,
       width,
@@ -42,13 +45,16 @@ const SwitchBoardFilter5: React.FC<IProps> = ({ value }) => {
 
   useEffect(() => {
     if (listArray.current) {
+      if (prevValue === value) return;
       const initialValue = value || boardData[0].value;
       const initialIndex = boardData.findIndex(
         (item) => item.value === initialValue
       );
       const initialItem = listArray.current[initialIndex];
       const { width } = initialItem.getBoundingClientRect();
+      prevValue = initialItem.id;
       setSelected({
+        value: initialItem.id,
         label: initialItem.textContent!,
         left: initialItem.offsetLeft,
         width,
