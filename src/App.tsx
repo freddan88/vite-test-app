@@ -6,9 +6,10 @@ import MeatballsMenu from './components/MeatballsMenu';
 import SwitchBoardFilter1 from './components/SwitchBoardFilter1';
 import SwitchBoardFilter2 from './components/SwitchBoardFilter2';
 import SwitchBoardFilter3 from './components/SwitchBoardFilter3';
+import SwitchBoardFilter4 from './components/SwitchBoardFilter4';
+import SwitchBoardFilter5 from './components/SwitchBoardFilter5';
 import SidebarTest01 from './features/sidebarTest01/SidebarTest01';
 import ToastNotification from './features/toastNotification/ToastNotification';
-import SwitchBoardFilter4 from './components/SwitchBoardFilter4';
 
 const switchBoardData = [
   {
@@ -61,6 +62,9 @@ function App() {
       <SwitchBoardFilter4 />
       <br />
       <br />
+      <div className="p-10">
+        <SwitchBoardFilter5 value="active" />
+      </div>
       <Button iconPathAfter={mdiHome} variant="contained">
         HOME
       </Button>
