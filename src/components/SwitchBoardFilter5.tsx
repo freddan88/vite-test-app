@@ -34,12 +34,11 @@ const SwitchBoardFilter5: React.FC<IProps> = ({ value }) => {
 
   const handleClick = (e: MouseEvent<HTMLLIElement>) => {
     const element = e.target as HTMLLIElement;
-    const { width } = element.getBoundingClientRect();
     setSelected({
       value: element.id,
       label: element.textContent!,
       left: element.offsetLeft,
-      width,
+      width: element.clientWidth,
     });
   };
 
@@ -51,13 +50,12 @@ const SwitchBoardFilter5: React.FC<IProps> = ({ value }) => {
         (item) => item.value === initialValue
       );
       const initialItem = listArray.current[initialIndex];
-      const { width } = initialItem.getBoundingClientRect();
       prevValue = initialItem.id;
       setSelected({
         value: initialItem.id,
         label: initialItem.textContent!,
         left: initialItem.offsetLeft,
-        width,
+        width: initialItem.clientWidth,
       });
     }
   }, [value]);
@@ -79,6 +77,7 @@ const SwitchBoardFilter5: React.FC<IProps> = ({ value }) => {
         {boardData.map((obj, index) => {
           return (
             <li
+              key={obj.value}
               className="border-r border-slate-400 px-2 last-of-type:border-none"
               ref={(el) => (listArray.current![index] = el!)}
               onClick={handleClick}
