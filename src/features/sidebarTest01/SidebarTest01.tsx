@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react';
-import MeatballsMenu from '../../components/MeatballsMenu';
 import TabNavigation from '../../components/tabNavigation/TabNavigation';
+import MeatballsMenu from '../../Menu';
 import { DataContext } from '../dataContextProvider/DataContextProvider';
 import useNotification from '../useNotification';
 import Sidebar from './sidebar/Sidebar';

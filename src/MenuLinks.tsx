@@ -5,20 +5,28 @@ interface IProps {
   menuPosition: number;
 }
 
-const TableContextMenu: FC<IProps> = ({ menuPosition }) => {
+const MenuLinks: FC<IProps> = ({ menuPosition }) => {
   return (
     <div
       className="absolute z-50 select-none whitespace-nowrap rounded-md bg-slate-100 py-4"
       style={{ top: `${menuPosition - 4}px`, right: `${menuPosition - 4}px` }}
     >
       <ul>
-        <li className="cursor-pointer py-1 px-2 hover:bg-slate-200">Edit</li>
-        <li className="cursor-pointer py-1 px-2 hover:bg-slate-200">Logs</li>
-        <li
-          onClick={() => console.log('Delete')}
-          className="cursor-pointer py-1 px-2 hover:bg-slate-200"
-        >
-          Delete
+        <li>
+          <Link
+            className="block cursor-pointer py-1 px-2 hover:bg-slate-200"
+            to="/"
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="block cursor-pointer py-1 px-2 hover:bg-slate-200"
+            to="/switchboards-test-01"
+          >
+            SwitchBoards
+          </Link>
         </li>
         <li>
           <Link
@@ -31,9 +39,9 @@ const TableContextMenu: FC<IProps> = ({ menuPosition }) => {
         <li>
           <Link
             className="block cursor-pointer py-1 px-2 hover:bg-slate-200"
-            to="/"
+            to="/notification-test-01"
           >
-            Home
+            Notifications-01
           </Link>
         </li>
       </ul>
@@ -41,4 +49,4 @@ const TableContextMenu: FC<IProps> = ({ menuPosition }) => {
   );
 };
 
-export default TableContextMenu;
+export default MenuLinks;

@@ -1,13 +1,11 @@
 import { mdiDotsHorizontal } from '@mdi/js';
 import Icon from '@mdi/react';
 import { FC, RefObject, useEffect, useRef, useState } from 'react';
-import TableContextMenu from './TableContextMenu';
-
-interface IProps {}
+import MenuLinks from './MenuLinks';
 
 let menuElementHeight = 0;
 
-const MeatballsMenu: FC<IProps> = (props) => {
+const Menu: FC = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const menuElement: RefObject<HTMLDivElement> = useRef(null);
@@ -34,9 +32,9 @@ const MeatballsMenu: FC<IProps> = (props) => {
       }}
     >
       <Icon path={mdiDotsHorizontal} size={1} />
-      {openMenu && <TableContextMenu menuPosition={menuElementHeight} />}
+      {openMenu && <MenuLinks menuPosition={menuElementHeight} />}
     </div>
   );
 };
 
-export default MeatballsMenu;
+export default Menu;
