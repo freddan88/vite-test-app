@@ -44,6 +44,14 @@ const MenuLinks: FC<IProps> = ({ menuPosition }) => {
             Notifications-01
           </Link>
         </li>
+        <li>
+          <Link
+            className="block cursor-pointer py-1 px-2 hover:bg-slate-200"
+            to="/react-table-test-01"
+          >
+            React Table Test 01
+          </Link>
+        </li>
       </ul>
     </div>
   );

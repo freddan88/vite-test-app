@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import SidebarTest01 from './features/sidebarTest01/SidebarTest01';
 import MeatballsMenu from './Menu';
 import NotificationTest01 from './pages/NotificationTest01';
+import ReactTableTest01 from './pages/ReactTableTest01';
 import SwitchBoardTest from './pages/SwitchBoardTest';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/sidebar-test-01" element={<SidebarTest01 />} />
         <Route path="/switchboards-test-01" element={<SwitchBoardTest />} />
         <Route path="/notification-test-01" element={<NotificationTest01 />} />
+        <Route path="/react-table-test-01" element={<ReactTableTest01 />} />
       </Routes>
     </main>
   );
