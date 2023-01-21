@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { Column, useFlexLayout, useTable } from 'react-table';
 import FilterSection from '../components/FilterSection';
+import useOverlay from '../hooks/useOverlay';
 
 const data = [
   {
@@ -47,10 +49,17 @@ const columns: Column[] = [
 interface IProps {}
 
 const ReactTableTest01: React.FC<IProps> = (props) => {
+  const { setOpenOverlay, isCommonModalOpen } = useOverlay();
   const tableInstance = useTable({ columns, data }, useFlexLayout);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
+
+  console.log(isCommonModalOpen);
+
+  useEffect(() => {
+    setOpenOverlay('COMMON_MODAL');
+  }, []);
 
   return (
     <div className="px-8">
