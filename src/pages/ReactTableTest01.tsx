@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import { Column, useTable } from 'react-table';
+import FilterSection from '../components/FilterSection';
 
 const data = [
   {
@@ -36,6 +38,7 @@ const ReactTableTest01: React.FC<IProps> = (props) => {
 
   return (
     <div className="px-8">
+      <FilterSection />
       <table
         {...getTableProps()}
         className="w-full table-fixed border-collapse"
@@ -74,6 +77,7 @@ const ReactTableTest01: React.FC<IProps> = (props) => {
           })}
         </tbody>
       </table>
+      <div className="h-[100vh] bg-slate-500">Test</div>
     </div>
   );
 };
