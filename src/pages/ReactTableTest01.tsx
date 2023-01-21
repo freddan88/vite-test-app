@@ -1,37 +1,53 @@
-import { useMemo } from 'react';
-import { Column, useTable } from 'react-table';
+import { Column, useFlexLayout, useTable } from 'react-table';
 import FilterSection from '../components/FilterSection';
 
 const data = [
   {
     col1: 'Hello',
     col2: 'World',
+    col3: 'Hello',
+    col4: 'World',
   },
   {
     col1: 'react-table',
     col2: 'rocks',
+    col3: 'Hello',
+    col4: 'World',
   },
   {
     col1: 'whatever',
     col2: 'you want',
+    col3: 'Hello',
+    col4: 'World',
   },
 ];
 
-const columns: Column<typeof data[0]>[] = [
+const columns: Column[] = [
   {
     Header: 'Column 1',
     accessor: 'col1',
+    maxWidth: 80,
   },
   {
     Header: 'Column 2',
     accessor: 'col2',
+  },
+  {
+    Header: 'Column 3',
+    accessor: 'col3',
+    maxWidth: 80,
+  },
+  {
+    Header: 'Column 4',
+    accessor: 'col4',
+    maxWidth: 60,
   },
 ];
 
 interface IProps {}
 
 const ReactTableTest01: React.FC<IProps> = (props) => {
-  const tableInstance = useTable({ columns, data });
+  const tableInstance = useTable({ columns, data }, useFlexLayout);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
@@ -41,7 +57,7 @@ const ReactTableTest01: React.FC<IProps> = (props) => {
       <FilterSection />
       <table
         {...getTableProps()}
-        className="w-full table-fixed border-collapse"
+        className="spacing w-full table-fixed border-collapse overflow-hidden text-ellipsis whitespace-nowrap"
       >
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -49,7 +65,10 @@ const ReactTableTest01: React.FC<IProps> = (props) => {
               {headerGroup.headers.map((column) => {
                 console.log(column);
                 return (
-                  <th {...column.getHeaderProps()}>
+                  <th
+                    {...column.getHeaderProps()}
+                    className="from-neutral-700 text-left font-semibold"
+                  >
                     {column.render('Header')}
                   </th>
                 );
