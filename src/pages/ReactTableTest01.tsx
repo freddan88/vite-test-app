@@ -1,34 +1,54 @@
 import { useEffect } from 'react';
-import { Column, useFlexLayout, useTable } from 'react-table';
+import {
+  CellProps,
+  Column,
+  ColumnWithLooseAccessor,
+  ColumnWithStrictAccessor,
+  useFlexLayout,
+  useTable,
+} from 'react-table';
 import FilterSection from '../components/FilterSection';
 import useOverlay from '../hooks/useOverlay';
 
-const data = [
+interface IColumn {
+  col1: string;
+  col2: string;
+  col3: string;
+  col4: number;
+}
+
+const data: IColumn[] = [
   {
     col1: 'Hello',
     col2: 'World',
     col3: 'Hello',
-    col4: 'World',
+    col4: 1,
   },
   {
     col1: 'react-table',
     col2: 'rocks',
     col3: 'Hello',
-    col4: 'World',
+    col4: 2,
   },
   {
     col1: 'whatever',
     col2: 'you want',
     col3: 'Hello',
-    col4: 'World',
+    col4: 3,
+  },
+  {
+    col1: 'whatever',
+    col2: 'you want',
+    col3: 'Hello',
+    col4: 3,
   },
 ];
 
-const columns: Column[] = [
+const columns: Column<IColumn>[] = [
   {
     Header: 'Column 1',
-    accessor: 'col1',
     maxWidth: 80,
+    accessor: 'col1',
   },
   {
     Header: 'Column 2',
@@ -40,9 +60,35 @@ const columns: Column[] = [
     maxWidth: 80,
   },
   {
-    Header: 'Column 4',
-    accessor: 'col4',
+    id: 'acions',
     maxWidth: 60,
+    Cell: (props: CellProps<IColumn>) => {
+      return <h1>{props.cell.value}</h1>;
+    },
+  },
+];
+
+const columnsStrict: ColumnWithStrictAccessor<IColumn>[] = [
+  {
+    Header: 'Column 1',
+    maxWidth: 80,
+    accessor: 'col1',
+  },
+  {
+    Header: 'Column 2',
+    accessor: 'col2',
+  },
+  {
+    Header: 'Column 3',
+    accessor: 'col3',
+    maxWidth: 80,
+  },
+  {
+    maxWidth: 60,
+    accessor: 'col4',
+    Cell: (props: CellProps<IColumn>) => {
+      return <h1>{props.cell.value}</h1>;
+    },
   },
 ];
 
