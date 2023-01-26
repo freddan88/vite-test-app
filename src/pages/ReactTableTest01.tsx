@@ -8,6 +8,7 @@ import {
   useTable,
 } from 'react-table';
 import FilterSection from '../components/FilterSection';
+import Table from '../components/ReactTable/Table';
 import useOverlay from '../hooks/useOverlay';
 
 interface IColumn {
@@ -16,6 +17,39 @@ interface IColumn {
   col3: string;
   col4: number;
 }
+
+export interface IAccountTableAccessors {
+  col1: string;
+  col2: string;
+}
+
+export type TAccountColumn = ColumnWithStrictAccessor<IAccountTableAccessors>;
+
+const tableData = [
+  {
+    col1: 'Hello',
+    col2: 'World',
+  },
+  {
+    col1: 'react-table',
+    col2: 'rocks',
+  },
+  {
+    col1: 'whatever',
+    col2: 'you want',
+  },
+];
+
+const tableColumns: TAccountColumn[] = [
+  {
+    Header: 'Column 1',
+    accessor: 'col1',
+  },
+  {
+    Header: 'Column 2',
+    accessor: 'col2',
+  },
+];
 
 const data: IColumn[] = [
   {
@@ -152,6 +186,9 @@ const ReactTableTest01: React.FC<IProps> = (props) => {
         </tbody>
       </table>
       <div className="h-[100vh] bg-slate-500">Test</div>
+      <div>
+        <Table tableData={tableData} tableColumns={tableColumns} />
+      </div>
     </div>
   );
 };
